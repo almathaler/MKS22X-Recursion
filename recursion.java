@@ -1,8 +1,13 @@
+import java.util.ArrayList;
 public class recursion{
     public static void main(String[] args){
+      /*
       for (int i = 0; i<100; i++){
         System.out.println("fib(" + i + "): " + fib(i));
       }
+      */
+      System.out.println("makeAllSums(3): ");
+      makeAllSums(3);
     }
     /*You may write additional private methods */
 
@@ -32,10 +37,10 @@ public class recursion{
      *fib(0) = 1; fib(1) = 1; fib(5) = 5
      *precondition: n is non-negative
      */
-    public static long fib(int n){
+    public static int fib(int n){
       return fibHelp(n, 0 ,1);
     }
-    private static long fibHelp(int n, int prev2, int prev){
+    private static int fibHelp(int n, int prev2, int prev){
       //so that its tail recursive, have to account for n being 0 or 1 in fib function not this, bc n is used as a counter
       if (n == 0){
         return prev2;
@@ -49,7 +54,19 @@ public class recursion{
       return fibHelp(n-1, prev, prev+prev2);
     }
     /*As Per classwork
-    public static ArrayList<Integer> makeAllSums(){
-    }
     */
+    public static ArrayList<Integer> makeAllSums(int n){ //if n==0, toReturn.add(curAns);
+      ArrayList<Integer> toReturn = new ArrayList<Integer>();
+      sumsHelp(n, 0, toReturn);
+      return toReturn;
+    }
+    private static void sumsHelp(int n, int curAns, ArrayList<Integer> toReturn){
+      while (n>-1){
+        if (n==0){
+          toReturn.add(curAns);
+        }
+        sumsHelp(n-1, curAns+n, toReturn);
+        sumsHelp(n-1, curAns, toReturn);
+      }
+    }
 }
