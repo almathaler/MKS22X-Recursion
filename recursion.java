@@ -5,9 +5,12 @@ public class recursion{
       for (int i = 0; i<100; i++){
         System.out.println("fib(" + i + "): " + fib(i));
       }
-      */
       System.out.println("makeAllSums(3): ");
       makeAllSums(3);
+      */
+      for (double i = 0; i<49; i+=.25){
+        System.out.println("sqrt(" + i + "): " + sqrt(i, .001));
+      }
     }
     /*You may write additional private methods */
 
@@ -20,16 +23,16 @@ public class recursion{
       if (n == 0){
         return 0;
       }
-      return sqrtHelp(n, 1);
+      return sqrtHelp(n, 1, tolerance);
     }
-    private static double sqrtHelp(double n, double guess){
+    private static double sqrtHelp(double n, double guess, double tolerance){
       double check;
       check = Math.abs(n - (guess*guess)) / ((n+guess*guess)/2) * 100;
-      if (check <= .001){
+      if (check <= tolerance){
         return guess;
       }
       else{
-        return sqrtHelp(n, ((n/guess)+guess)/2);
+        return sqrtHelp(n, ((n/guess)+guess)/2, tolerance);
       }
     }
 
@@ -55,7 +58,10 @@ public class recursion{
     }
     /*As Per classwork
     */
-    public static ArrayList<Integer> makeAllSums(int n){ //if n==0, toReturn.add(curAns);
+    public static ArrayList<Integer> makeAllSums(int n, int curAns){ //if n==0, toReturn.add(curAns);
+      return null;
+    }
+    /*
       ArrayList<Integer> toReturn = new ArrayList<Integer>();
       sumsHelp(n, 0, toReturn);
       return toReturn;
@@ -69,4 +75,5 @@ public class recursion{
         sumsHelp(n-1, curAns, toReturn);
       }
     }
+    */
 }
