@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class recursion{
+public class Recursion{
     public static void main(String[] args){
       /*
       for (int i = 0; i<100; i++){
@@ -7,8 +7,15 @@ public class recursion{
       }
       System.out.println("makeAllSums(3): ");
       makeAllSums(3);
-      */
       for (double i = 0; i<49; i+=.25){
+        System.out.println("sqrt(" + i + "): " + sqrt(i, .001));
+      }
+      */
+      //System.out.println("makeAllSums(3): " + makeAllSums(3));
+      //System.out.println("makeAllSums(20): " + makeAllSums(20));
+      //System.out.println("makeAllSums(7): " + makeAllSums(7));
+      //makeAllSums(3);
+      for (double i = 0; i<=49; i+=.25){
         System.out.println("sqrt(" + i + "): " + sqrt(i, .001));
       }
     }
@@ -58,8 +65,19 @@ public class recursion{
     }
     /*As Per classwork
     */
-    public static ArrayList<Integer> makeAllSums(int n, int curAns){ //if n==0, toReturn.add(curAns);
-      return null;
+    public static ArrayList<Integer> makeAllSums(int n){ //if n==0, toReturn.add(curAns);
+      ArrayList<Integer> toReturn = new ArrayList<Integer>();
+      makeAllSumsHelp(n, toReturn, 0);
+      return toReturn;
+    }
+    private static void makeAllSumsHelp(int n, ArrayList<Integer> toReturn, int curAns){
+      if (n>= 1){
+        makeAllSumsHelp(n-1, toReturn, curAns+n);
+        makeAllSumsHelp(n-1, toReturn, curAns);
+      }
+      else{
+        toReturn.add(curAns);
+      }
     }
     /*
       ArrayList<Integer> toReturn = new ArrayList<Integer>();
