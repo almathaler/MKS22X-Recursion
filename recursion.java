@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class Recursion{
-    public static void main(String[] args){
+    //public static void main(String[] args){
       /*
       for (int i = 0; i<100; i++){
         System.out.println("fib(" + i + "): " + fib(i));
@@ -15,10 +15,10 @@ public class Recursion{
       //System.out.println("makeAllSums(20): " + makeAllSums(20));
       //System.out.println("makeAllSums(7): " + makeAllSums(7));
       //makeAllSums(3);
-      for (double i = 0; i<=49; i+=.25){
-        System.out.println("sqrt(" + i + "): " + sqrt(i, .001));
-      }
-    }
+      //for (int i = 0; i<50; i++){
+      //  System.out.println("fib(" + i + "): " + fib(i));
+      //}
+    //}
     /*You may write additional private methods */
 
     /*Recursively find the sqrt using Newton's approximation
