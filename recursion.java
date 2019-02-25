@@ -40,11 +40,12 @@ public class recursion{
     }
   }
 
-  public static boolean closeEnough(double num1, double num2){
-    if (Math.abs(num2 - num1) <= .0000001){
-      return true;
-    }
-    return false;
+  public static boolean closeEnough(double a, double b){
+    if(a==0.0 && b==0.0)return true;
+    if(a==0.0)return b < 0.00000000001;
+    if(b==0.0)return a < 0.00000000001;
+    return Math.abs(a-b)/a < 0.0001;//This is the normal % difference allowed
+
   }
 
   //testcase must be a valid index of your input/output array
